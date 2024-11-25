@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комментарии</title>
+    <!-- Подключаем наш JavaScript файл -->
+    <script defer src="comments.js"></script>
+    <!-- Основные стили -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .comment-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .comment-content {
+            margin-top: 5px;
+        }
+        .nested-comments {
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Новости</h1>
+    <p>Здесь представлен пример новости:</p>
+    
+    <div class="news-content">
+        <p>Текст новости...</p>
+    </div>
+
+    <h2>Комментарии</h2>
+    <div id="comments-container">
+        <!-- Здесь будут комментарии -->
+    </div>
+
+    <button onclick="addComment()">Добавить комментарий</button>
+
+    <template id="comment-template">
+        <div class="comment-container">
+            <strong><slot name="author"></slot></strong>
+            <span class="date"><slot name="date"></slot></span>
+            <p class="comment-content"><slot name="content"></slot></p>
+            <button class="like-button">Нравится</button>
+            <button class="reply-button">Ответить</button>
+            <div class="nested-comments">
+                <slot name="replies"></slot>
+            </div>
+        </div>
+    </template>
+
+</body>
+</html>
