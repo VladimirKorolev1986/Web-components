@@ -1,20 +1,13 @@
-// comments.js
-
 class CommentsComponent extends HTMLElement {
     constructor() {
         super();
         
-        // Создаем теневой корень
+     
         this.attachShadow({ mode: 'open' });
 
-        // Клонируем шаблон
         const template = document.getElementById('comment-template');
         const instance = template.content.cloneNode(true);
-
-        // Добавляем клон шаблона в теневую область
         this.shadowRoot.appendChild(instance);
-
-        // Получаем элементы из теневого корня
         this.authorSlot = this.shadowRoot.querySelector('slot[name="author"]');
         this.dateSlot = this.shadowRoot.querySelector('slot[name="date"]');
         this.contentSlot = this.shadowRoot.querySelector('slot[name="content"]');
